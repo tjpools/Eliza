@@ -7,11 +7,19 @@ script, DOCTOR, responded in the style of a reflective psychotherapist: it
 noticed selected words and phrases, transformed parts of what a person said,
 and returned prompts that encouraged the person to continue.
 
-The historical importance of ELIZA is not that it understood people. It did
-not. Its conversations demonstrated how readily people can attribute
-understanding to a system whose replies feel relevant. The effect is a useful
-starting point for studying language, interaction, and the boundaries between
-simulation and understanding.
+The 1956 Dartmouth proposal is often remembered through the question of
+whether machines can think. Another useful framing is about mapping: can
+features of human learning and intelligent behavior be represented by
+corresponding machine processes? In this project, **homomorphism** names that
+structural question, not a claim that human and machine experience are
+identical, or a verdict about machine consciousness.
+
+ELIZA makes one such mapping concrete on a small scale. Human utterances are
+matched to machine-defined keywords and patterns; selected pieces are
+transformed and mapped to response templates. The interesting question is
+what this mapping preserves, what it leaves out, and how far a coherent
+interaction can be built from it. This keeps the focus on representation and
+correspondence rather than treating consciousness as the project's test.
 
 This project takes inspiration from that lineage. It is an educational
 recreation, not a claim to reproduce Weizenbaum's original source code or every
@@ -20,13 +28,15 @@ detail of the original program.
 ## What this project is for
 
 The goal is to make a small, inspectable chatbot that shows its workings. Its
-behavior should come from explicit rules rather than a hidden model or a claim
-of intelligence. Readers should be able to trace a reply from the input,
-through a match and any transformations, to the response template.
+behavior should come from explicit rules rather than a hidden model. Readers
+should be able to trace how an utterance is mapped from the input, through a
+match and any transformations, to a response template, and inspect where that
+mapping is selective or lossy.
 
-The program is a conversational mirror, not a therapist, adviser, or
-understanding agent. Its interface and documentation should not imply
-otherwise.
+The program is a limited conversational system, not a therapist or adviser.
+Its interface and documentation should describe its actual rules and limits
+without presenting those limits as a resolution of broader questions about
+mind or consciousness.
 
 ## Architecture
 
@@ -57,9 +67,10 @@ engine without adding runtime dependencies.
 
 - **Legibility over cleverness.** Prefer rules that can be read and followed
   over compact but opaque tricks.
-- **Honest boundaries.** Make clear that pattern matching is not
-  understanding, and avoid presenting the bot as a source of professional
-  help.
+- **Visible mappings.** Make the path from human utterance to machine reply
+  inspectable, including the simplifications and information it leaves out.
+- **Honest boundaries.** Describe what this implementation does, and avoid
+  presenting the bot as a source of professional help.
 - **Small pieces.** Keep the rule data, engine, and user interface distinct.
 - **Deterministic tests.** Make rule selection and transformations testable
   without relying on a live conversation or external services.
