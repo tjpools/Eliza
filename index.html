@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f1e8">
+    <meta name="description" content="A local, rule-based ELIZA-inspired chatbot.">
+    <title>Eliza — a conversational mirror</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="src/rules.js" defer></script>
+    <script src="src/engine.js" defer></script>
+    <script src="src/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">A small experiment in conversation</p>
+          <h1>Eliza<span class="period">.</span></h1>
+        </div>
+        <button class="reset-button" id="reset-button" type="button">Start over</button>
+      </header>
+
+      <section class="chat-card" aria-label="Chat with Eliza">
+        <div class="chat-heading">
+          <div class="status-mark" aria-hidden="true"></div>
+          <div>
+            <h2>Eliza</h2>
+            <p>Here to listen</p>
+          </div>
+        </div>
+
+        <ol class="messages" id="messages" aria-live="polite" aria-relevant="additions">
+          <li class="message message--bot">
+            <span class="message-label">Eliza</span>
+            <p>Hello. What would you like to talk about?</p>
+          </li>
+        </ol>
+
+        <form class="composer" id="chat-form">
+          <label class="visually-hidden" for="user-input">Your message</label>
+          <textarea
+            id="user-input"
+            name="message"
+            rows="1"
+            maxlength="2000"
+            placeholder="Write what’s on your mind..."
+            autocomplete="off"
+            required
+          ></textarea>
+          <button class="send-button" type="submit" aria-label="Send message">
+            <span aria-hidden="true">Send</span>
+            <span aria-hidden="true" class="send-arrow">↗</span>
+          </button>
+        </form>
+        <div class="chat-options">
+          <label class="workings-toggle">
+            <input id="show-workings" type="checkbox">
+            <span>Show how replies are made</span>
+          </label>
+          <span class="enter-hint">Enter to send · Shift+Enter for a new line</span>
+        </div>
+      </section>
+
+      <footer class="disclaimer">
+        <span class="disclaimer-icon" aria-hidden="true">i</span>
+        <p>
+          Eliza uses simple pattern matching. It does not understand you and
+          is not a therapist or a source of professional advice.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
